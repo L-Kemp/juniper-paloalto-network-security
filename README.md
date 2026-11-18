@@ -52,12 +52,15 @@ A later SSH attempt timed out, and follow-up testing showed occasional connectiv
 - [Juniper VLAN and trunk configuration](juniper-vlans-trunk-configuration.png)
 - [Successful Kali-to-Ubuntu connectivity test](kali-to-ubuntu-inter-vlan-ping.png)
 - [Palo Alto firewall rule usage](paloalto-security-rule-usage.png)
+- [Palo Alto VLAN interfaces and security zones](paloalto-vlan-interfaces.png)
+- [Palo Alto ICMP security policy](paloalto-icmp-security-rule.png)
 
 
 
 ## What's coming next
 
-I'll be adding screenshots, selected device configurations, and additional test results to show how the network was set up and verified.
+I'll continue documenting configuration details, troubleshooting, and additional tests as I expand the network.
+
 
 ## What this project shows
 
