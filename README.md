@@ -32,9 +32,14 @@ Not every test worked the first time. I checked switch ports, VLAN settings, fir
 
 A later SSH attempt timed out, and follow-up testing showed occasional connectivity problems and some dropped packets in the reverse direction. Those findings are **still being investigated**, so I'm documenting them rather than presenting them as resolved.
 
+
+## Network diagram
+
+[View my network topology and setup notes](NETWORK_TOPOLOGY.md)
+
 ## What's coming next
 
-I'll add a network topology diagram, selected configuration examples, screenshots of the setup and test results, and notes explaining the troubleshooting process. Sensitive device details will be removed before anything is published.
+I'll be adding configuration examples, screenshots, connectivity test results, and troubleshooting notes as I continue documenting the project.
 
 ## What this project shows
 
