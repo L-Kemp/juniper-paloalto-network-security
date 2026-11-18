@@ -43,9 +43,14 @@ A later SSH attempt timed out, and follow-up testing showed occasional connectiv
 [View my Juniper and Palo Alto configuration notes](CONFIGURATION_NOTES.md)
 
 
+## Testing and troubleshooting
+
+[View my connectivity tests and troubleshooting notes](TESTING_AND_TROUBLESHOOTING.md)
+
+
 ## What's coming next
 
-I'll be adding configuration examples, screenshots, connectivity test results, and troubleshooting notes as I continue documenting the project.
+I'll be adding screenshots, selected device configurations, and additional test results to show how the network was set up and verified.
 
 ## What this project shows
 
