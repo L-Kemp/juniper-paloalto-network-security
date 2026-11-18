@@ -15,9 +15,11 @@ The idea was to allow this one type of traffic through the firewall and confirm 
 
 On **November 9, 2026**, I sent four ping requests from Kali to Ubuntu. All four received replies: **0% packet loss**.
 
-I also checked the Palo Alto policy and its hit activity. Together, those checks showed that the intended Kali-to-Ubuntu ICMP path was working during that test.
+I repeated the test on **November 18, 2026**, and again received **4 of 4 replies with 0% packet loss**. Before testing, I confirmed Kali and Ubuntu could each reach their respective Palo Alto VLAN gateways. I also checked the routes to make sure traffic between the two VLANs went through the firewall instead of VMware's NAT gateway.
 
-**Verified result:** Kali (VLAN 110) → Ubuntu (VLAN 120), ICMP/ping, **4 of 4 replies**.
+The Palo Alto ICMP security rule showed **265 cumulative hits** when checked on November 18, with its last hit recorded that day. The counter includes traffic beyond the individual four-packet tests.
+
+**Verified result:** Kali (`10.100.110.20`, VLAN 110) → Ubuntu (`10.100.120.20`, VLAN 120), ICMP/ping, **4 of 4 replies on both November 9 and November 18**.
 
 ## What needed troubleshooting
 
@@ -26,6 +28,7 @@ Not every connection worked consistently in later tests:
 | Check | What I observed | Status |
 | --- | --- | --- |
 | Kali → Ubuntu ping, November 9 | 4 of 4 replies; 0% packet loss | **Successful** |
+| Kali → Ubuntu ping, November 18 | 4 of 4 replies; 0% packet loss | **Successful retest** |
 | Follow-up ping tests | Some runs returned 4 of 4 replies; another returned 3 of 4 | **Intermittent loss observed** |
 | SSH from Kali to Ubuntu | Connection timed out, although Ubuntu's SSH service was running and listening on port 22 | **Not resolved** |
 | Reverse-direction packet capture | Palo Alto capture counters showed four packets at both the receive and drop stages for the filtered traffic | **Cause not confirmed** |
@@ -44,8 +47,10 @@ I worked through the setup instead of immediately changing firewall rules:
 
 The packet captures helped identify where to investigate next, but **I haven't confirmed a final root cause** for the later connection issues.
 
-## What I'll capture next
+## Evidence captured
 
-When I power the equipment back on, I'll save screenshots or sanitized command output for the successful ping, the firewall policy and logs, relevant switch settings, and follow-up troubleshooting. I'll retest the unresolved connections separately and update their status only after confirming the results.
+I've added the [successful inter-VLAN ping screenshot](kali-to-ubuntu-inter-vlan-ping.png), [Juniper VLAN and trunk output](juniper-vlans-trunk-configuration.png), [Palo Alto interfaces](paloalto-vlan-interfaces.png), [ICMP security rule](paloalto-icmp-security-rule.png), and [rule usage](paloalto-security-rule-usage.png).
+
+The November 18 retest confirms the ping path worked again. It doesn't by itself resolve the earlier SSH timeout or explain the reverse-direction packet drops, so those remain open for follow-up testing.
 
 [Back to the project overview](README.md) · [Configuration notes](CONFIGURATION_NOTES.md) · [Network diagram](NETWORK_TOPOLOGY.md)
