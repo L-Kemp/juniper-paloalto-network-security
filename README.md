@@ -47,6 +47,13 @@ A later SSH attempt timed out, and follow-up testing showed occasional connectiv
 
 [View my connectivity tests and troubleshooting notes](TESTING_AND_TROUBLESHOOTING.md)
 
+## Configuration and test screenshots
+
+- [Juniper VLAN and trunk configuration](juniper-vlans-trunk-configuration.png)
+- [Successful Kali-to-Ubuntu connectivity test](kali-to-ubuntu-inter-vlan-ping.png)
+- [Palo Alto firewall rule usage](paloalto-security-rule-usage.png)
+
+
 
 ## What's coming next
 
