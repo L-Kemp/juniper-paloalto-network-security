@@ -42,6 +42,6 @@ Not every later test was consistent: I also saw occasional packet loss, an SSH t
 
 ## What I'll add later
 
-When I power the equipment back on, I'll capture selected Juniper and Palo Alto configuration output, confirm the access-port assignments and VMware connections, and add screenshots of the policy and test results. I'll remove any sensitive information before publishing.
+When I power the equipment back on, I'll capture selected Juniper and Palo Alto configuration output, confirm the access-port assignments and VMware connections, and add screenshots of the policy and test results.
 
 [Back to the project overview](README.md) · [View the network diagram](NETWORK_TOPOLOGY.md)
