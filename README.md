@@ -24,7 +24,9 @@ The Juniper switch and Palo Alto firewall are connected through a trunk link tha
 
 I created and checked a Palo Alto rule named `ALLOW-KALI-TO-UBUNTU-ICMP` to allow a specific ping test from Kali to Ubuntu.
 
-**On November 9, 2026, the ping test succeeded with 0% packet loss.** That confirmed connectivity between two devices on different VLANs with the intended firewall rule in place. I also checked the firewall policy and its hit activity.
+**On November 9, 2026, Kali successfully pinged Ubuntu across VLANs 110 and 120 with 0% packet loss.** I repeated the test on **November 18, 2026**, and again received 4 of 4 replies (0% loss).
+
+I also checked that both VMs were routing the test traffic through their Palo Alto gateways rather than VMware's NAT gateway. The firewall showed **265 cumulative hits** on the ICMP security rule as of November 18. That confirms the rule was being used, although the counter represents more than just these two tests.
 
 ## Troubleshooting along the way
 
