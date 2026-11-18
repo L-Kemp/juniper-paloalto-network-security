@@ -36,12 +36,25 @@ I created a Palo Alto rule called **`ALLOW-KALI-TO-UBUNTU-ICMP`**. It was meant 
 
 ## What I confirmed
 
-On **November 9, 2026**, Kali successfully pinged Ubuntu across the two VLANs with **0% packet loss**. I also checked the firewall rule's hit activity during the project.
+On **November 9, 2026**, Kali successfully pinged Ubuntu across VLANs 110 and 120 with **0% packet loss**. I repeated the test on **November 18, 2026**, with another 4 of 4 replies and 0% loss. The Palo Alto rule had **265 cumulative hits** when I checked it on November 18.
 
-Not every later test was consistent: I also saw occasional packet loss, an SSH timeout, and dropped packets in the opposite direction. Those issues are part of the troubleshooting work and **aren't being listed as fixed**.
+I also verified these Juniper switch ports without changing their configurations:
 
-## What I'll add later
+| Port | Mode | VLANs / use |
+| --- | --- | --- |
+| `ge-0/0/0` | Trunk | VLANs 100, 110, 120 — Palo Alto connection |
+| `ge-0/0/1` | Trunk | VLANs 100, 110, 120 — native VLAN 100 |
+| `ge-0/0/2` | Access | VLAN 110 — clients |
+| `ge-0/0/3` | Access | VLAN 120 — servers |
 
-When I power the equipment back on, I'll capture selected Juniper and Palo Alto configuration output, confirm the access-port assignments and VMware connections, and add screenshots of the policy and test results.
+For the VMware side, I used **VMnet5 bridged to the USB Ethernet adapter**, with Kali on `eth2.110` and Ubuntu on `ens38.120`. I added temporary routes through the Palo Alto gateways for the inter-VLAN test while keeping the existing NAT connections.
+
+Not every earlier test was consistent: I also saw occasional packet loss, an SSH timeout, and dropped packets in the opposite direction. Those issues are part of the troubleshooting work and **aren't being listed as fixed**.
+
+## Evidence already added
+
+The repository now includes screenshots of the [Juniper VLAN and trunk configuration](juniper-vlans-trunk-configuration.png), [Palo Alto VLAN interfaces](paloalto-vlan-interfaces.png), [ICMP security rule](paloalto-icmp-security-rule.png), [rule usage](paloalto-security-rule-usage.png), and [successful Kali-to-Ubuntu ping](kali-to-ubuntu-inter-vlan-ping.png).
+
+I'll continue adding details as I investigate the remaining connectivity issues.
 
 [Back to the project overview](README.md) · [View the network diagram](NETWORK_TOPOLOGY.md)
