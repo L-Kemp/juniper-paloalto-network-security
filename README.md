@@ -37,6 +37,12 @@ A later SSH attempt timed out, and follow-up testing showed occasional connectiv
 
 [View my network topology and setup notes](NETWORK_TOPOLOGY.md)
 
+
+## Configuration notes
+
+[View my Juniper and Palo Alto configuration notes](CONFIGURATION_NOTES.md)
+
+
 ## What's coming next
 
 I'll be adding configuration examples, screenshots, connectivity test results, and troubleshooting notes as I continue documenting the project.
